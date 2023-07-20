@@ -1,42 +1,17 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, StatusBar, Text} from 'react-native';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import {NavigationContainer} from '@react-navigation/native';
+import Routes from './src/routes';
 
 function App() {
   return (
-    <SafeAreaView>
-      <Text>Teste</Text>
-    </SafeAreaView>
+    <NavigationContainer>
+      <StatusBar backgroundColor={'#30a69d'} barStyle="light-content" />
+      <Routes />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default App;
