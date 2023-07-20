@@ -1,9 +1,24 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
 import * as Animatable from 'react-native-animatable';
 
-const Welcome = () => {
+import {useNavigation} from '@react-navigation/native';
+
+type RootStackParamList = {
+  Welcome: undefined;
+  SignIn: {};
+  // outras rotas...
+};
+
+type WelcomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Welcome'
+>;
+
+const Welcome = ({navigation}: {navigation: WelcomeScreenNavigationProp}) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerLogo}>
@@ -24,7 +39,9 @@ const Welcome = () => {
         </Text>
         <Text style={styles.text}>Faça o login para começar</Text>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('SignIn', {})}>
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
       </Animatable.View>
